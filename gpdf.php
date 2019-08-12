@@ -25,11 +25,12 @@ $pdf->Cell(40,10,'The Society of CST Department of IIEST Shibpur');
 
 $info = pathinfo($_FILES['my_file']['name']);
 $ext = $info['extension']; // get the extension of the file
-$newname = "avatar.".$ext; 
-$target = 'uploads/'.$newname;
-if(file_exists($target)) unlink("$target");
-move_uploaded_file( $_FILES['my_file']['tmp_name'], $target);
-$pdf->Image('uploads/'.$newname ,35,32,35,35,$ext);
+//$newname = "avatar.".$ext; 
+//$target = 'uploads/'.$newname;
+//if(file_exists($target)) unlink("$target");
+//move_uploaded_file( $_FILES['my_file']['tmp_name'], $target);
+//$pdf->Image($target ,35,32,35,35,$ext);
+$pdf->Image($_FILES['my_file']['tmp_name'] ,35,32,35,35,$ext);
 
 $pdf->SetY(80);
 $pdf->SetFont('Helvetica','B',28);
